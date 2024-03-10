@@ -9,4 +9,13 @@ const verifyToken = (req,res,next) => {
             next();
         })
     }
+};
+
+const verifyTokenAndAuthorization = (req,res,next)=>{
+    verifyToken(req,res,()=>{
+        if(req.user.id === req.params.id || req.user.isAdmin){
+            
+        }
+    })
 }
+module.exports = (verifyToken)
