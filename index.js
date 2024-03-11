@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
-const useRouter = require("./routes/route");
+const useRouter = require("./routes/route")
 dotenv.config();
 app.use(express.json());
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb://127.0.0.1:27017/Ecommerce")
 
   .then(() => {
     console.log("Connected successfully to MongoDB");
