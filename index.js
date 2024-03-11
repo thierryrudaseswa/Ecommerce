@@ -2,7 +2,11 @@ const express = require('express');
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
-const useRouter = require("./routes/route")
+const useRouter = require("./routes/route");
+const productRoute = require("./routes/Product");
+const cartRoute = require("./routes/cart");
+const orderRoute = require("./routes/Order");
+
 dotenv.config();
 app.use(express.json());
 mongoose.connect("mongodb://127.0.0.1:27017/Ecommerce")
@@ -16,3 +20,5 @@ mongoose.connect("mongodb://127.0.0.1:27017/Ecommerce")
 app.listen(5000, () => {
   console.log("The server is working on port 5000");
 });
+
+
