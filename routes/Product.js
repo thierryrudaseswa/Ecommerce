@@ -1,14 +1,13 @@
+const router = require("express").Router();
 const Product = require("../models/Product");
+
 const {
   verifyTokenAndAdmin,
-  verifyToken,verifyTokenAndAuthorization,
-  
+  verifyToken,
+  verifyTokenAndAuthorization // Removed the extra comma here
 } = require("./verifyToken");
 
-const router = require("express").Router();
-
 //CREATE
-
 router.post("/", verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new Product(req.body);
 
@@ -60,6 +59,7 @@ router.get("/find/:id", async (req, res) => {
 router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
+  
   try {
     let products;
 
